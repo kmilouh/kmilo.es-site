@@ -9,7 +9,7 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      - "IONOS_API_KEY=${IONOS_API_KEY}"
+      - "IONOS_API_KEY=09fe3000a7a34102a8d64d6a44d8fcdf.9udIEa8VxOa88wQGkkPNJK3VF5Z10HTZtSUud968ezD_ITOBSjEDFY3Aut69XzpbyyLrAmlPE1TOuVmxHGi77g "
     command:
       - "--configFile=/etc/traefik/traefik.yml"
     volumes:
