@@ -1,0 +1,25 @@
+http:
+  middlewares:
+    dashboard-auth:
+      basicAuth:
+        users:
+          # user: admin | password: changeme (replace this hash)
+          - "admin:$apr1$2rmI0JcY$C3T8w2f/MkscYiE51De6C0"
+
+    www-to-root:
+      redirectRegex:
+        regex: "^https?://www\\.(.+)"
+        replacement: "https://${1}"
+        permanent: true
+
+    root-to-www:
+      redirectRegex:
+        regex: "^https?://(?!www\\.)(.+)"
+        replacement: "https://www.${1}"
+        permanent: true
+
+    redirect-old-to-new:
+      redirectRegex:
+        regex: "^https?://old\\.kmilo\\.es/(.*)"
+        replacement: "https://new.kmilo.es/${1}"
+        permanent: true
