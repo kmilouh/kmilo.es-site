@@ -8,6 +8,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    environment:
+      - "IONOS_API_KEY=${IONOS_API_KEY}"
     command:
       - "--configFile=/etc/traefik/traefik.yml"
     volumes:
@@ -36,6 +38,8 @@ services:
       - "traefik.http.routers.whoami.rule=Host(`whoami.kmilo.es`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls.certresolver=le"
+      - "traefik.http.routers.whoami.tls.domains[0].main=kmilo.es"
+      - "traefik.http.routers.whoami.tls.domains[0].sans=*.kmilo.es"
       - "traefik.http.routers.whoami.middlewares=www-to-root@file"
 
   static_site:
@@ -52,6 +56,51 @@ services:
       - "traefik.http.routers.static.entrypoints=websecure"
       - "traefik.http.routers.static.tls.certresolver=le"
       - "traefik.http.routers.static.middlewares=www-to-root@file"
+
+  node_app:
+    build:
+      context: ./apps/node
+    container_name: node_app
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.node.rule=Host(`node.kmilo.es`)"
+      - "traefik.http.routers.node.entrypoints=websecure"
+      - "traefik.http.routers.node.tls.certresolver=le"
+      - "traefik.http.routers.node.middlewares=www-to-root@file"
+      - "traefik.http.services.node.loadbalancer.server.port=3000"
+
+  python_app:
+    build:
+      context: ./apps/python
+    container_name: python_app
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.python.rule=Host(`python.kmilo.es`)"
+      - "traefik.http.routers.python.entrypoints=websecure"
+      - "traefik.http.routers.python.tls.certresolver=le"
+      - "traefik.http.routers.python.middlewares=www-to-root@file"
+      - "traefik.http.services.python.loadbalancer.server.port=8000"
+
+  rust_app:
+    build:
+      context: ./apps/rust
+    container_name: rust_app
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rust.rule=Host(`rust.kmilo.es`)"
+      - "traefik.http.routers.rust.entrypoints=websecure"
+      - "traefik.http.routers.rust.tls.certresolver=le"
+      - "traefik.http.routers.rust.middlewares=www-to-root@file"
+      - "traefik.http.services.rust.loadbalancer.server.port=8080"
 
 networks:
   proxy:
