@@ -57,6 +57,20 @@ services:
       - "traefik.http.routers.static.tls.certresolver=le"
       - "traefik.http.routers.static.middlewares=www-to-root@file"
 
+  default_site:
+    image: nginx:alpine
+    container_name: default_site
+    restart: unless-stopped
+    volumes:
+      - "./sites/www:/usr/share/nginx/html:ro"
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.default.rule=Host(`www.kmilo.es`)"
+      - "traefik.http.routers.default.entrypoints=websecure"
+      - "traefik.http.routers.default.tls.certresolver=le"
+
   node_app:
     build:
       context: ./apps/node

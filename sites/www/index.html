@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kmilo — Senior Application & Distributed Systems Engineer</title>
+    <style>
+      :root {
+        --ink: #0b0f17;
+        --paper: #f6f4ef;
+        --accent: #0c6b4f;
+        --accent-2: #f29d38;
+        --muted: #586174;
+        --card: #ffffff;
+        --shadow: 0 10px 30px rgba(11, 15, 23, 0.12);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+        background: radial-gradient(1200px 800px at 10% -10%, #dfeee8, transparent),
+          radial-gradient(900px 600px at 90% -10%, #f7e6cf, transparent),
+          var(--paper);
+        line-height: 1.6;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 56px 24px 96px;
+      }
+      header {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: #e7f2ee;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      h1 {
+        font-size: 2.9rem;
+        line-height: 1.1;
+        margin: 18px 0 12px;
+      }
+      .lead {
+        font-size: 1.15rem;
+        color: var(--muted);
+        margin-bottom: 22px;
+      }
+      .cta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        text-decoration: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        transition: transform 0.15s ease, box-shadow 0.2s ease;
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: var(--shadow);
+      }
+      .btn.secondary {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: transparent;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+      .hero-card {
+        background: var(--card);
+        padding: 24px;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .hero-card h3 {
+        margin: 0 0 10px;
+      }
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      section {
+        margin-top: 40px;
+      }
+      .card {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        margin-bottom: 10px;
+        padding-left: 16px;
+        position: relative;
+      }
+      li::before {
+        content: "•";
+        color: var(--accent-2);
+        position: absolute;
+        left: 0;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .pill {
+        background: #eef2f7;
+        color: #1b2333;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+      }
+      footer {
+        margin-top: 56px;
+        color: var(--muted);
+      }
+      @media (max-width: 900px) {
+        header {
+          grid-template-columns: 1fr;
+        }
+        .grid.two {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div>
+          <span class="badge">Senior Engineer · Product Systems</span>
+          <h1>Kmilo — I design calm, resilient applications and distributed systems.</h1>
+          <p class="lead">
+            20+ years delivering production software across startups and large organizations.
+            I focus on architecture that scales, teams that ship, and experiences that feel effortless.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="mailto:yo@kmilo.es">Start a project</a>
+            <a class="btn secondary" href="#work">View impact</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>What I do</h3>
+          <ul>
+            <li>Design end-to-end systems that stay fast under real-world load.</li>
+            <li>Lead platform refactors that reduce cost and improve reliability.</li>
+            <li>Turn complex requirements into clean product decisions.</li>
+          </ul>
+          <p class="meta">Based in Europe · Available for consulting and leadership roles.</p>
+        </div>
+      </header>
+
+      <section class="grid two">
+        <div class="card">
+          <h2>Signature strengths</h2>
+          <ul>
+            <li>Distributed systems architecture, observability, and resilience.</li>
+            <li>Product-focused engineering: discovery, delivery, and iteration.</li>
+            <li>Design systems and UX flows that reduce friction for users.</li>
+            <li>Mentoring senior engineers and growing tech leadership.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Engineering principles</h2>
+          <ul>
+            <li>Build for clarity first, then scale with data.</li>
+            <li>Automate the boring, instrument the risky.</li>
+            <li>Own the customer experience end-to-end.</li>
+            <li>Bias toward maintainability over cleverness.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="work" class="grid two">
+        <div class="card">
+          <h2>Selected impact</h2>
+          <ul>
+            <li>Re-architected a real-time platform to 10x throughput with 30% lower infra cost.</li>
+            <li>Led a multi-region migration with zero-downtime cutover.</li>
+            <li>Built a design system that cut UI delivery time in half.</li>
+            <li>Standardized CI/CD pipelines across 40+ services.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>What teams hire me for</h2>
+          <ul>
+            <li>High-stakes migrations and modernization.</li>
+            <li>Architecting APIs and event-driven backends.</li>
+            <li>Stabilizing systems under growth or complexity.</li>
+            <li>Building strong engineering culture.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid two">
+        <div class="card">
+          <h2>Toolbox</h2>
+          <div class="pill-row">
+            <span class="pill">Rust</span>
+            <span class="pill">Go</span>
+            <span class="pill">Python</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Kafka</span>
+            <span class="pill">gRPC</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span>
+            <span class="pill">Terraform</span>
+            <span class="pill">Prometheus</span>
+            <span class="pill">OpenTelemetry</span>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Focus areas</h2>
+          <ul>
+            <li>Platform reliability engineering.</li>
+            <li>Domain-driven architecture and service boundaries.</li>
+            <li>High-performance data pipelines.</li>
+            <li>Security and compliance readiness.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Engagement model</h2>
+        <p>
+          I partner with teams as a principal engineer or fractional architect. Expect a clear plan,
+          focused execution, and systems that stay clean after the handoff.
+        </p>
+        <ul>
+          <li>Architecture reviews and modernization plans.</li>
+          <li>Hands-on delivery with your engineering team.</li>
+          <li>Leadership coaching and team enablement.</li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>Want to talk? <a href="mailto:yo@kmilo.es">yo@kmilo.es</a></p>
+        <p class="meta">© 2026 Kmilo. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
